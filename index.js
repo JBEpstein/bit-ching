@@ -1,4 +1,4 @@
 'use strict';
 
 require('dotenv').config();
-require('./lib/_server').start(process.env.PORT || 3000);
+require('./lib/server').start(process.env.PORT || 3000);
