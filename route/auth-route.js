@@ -34,3 +34,15 @@ authRouter.get('/signin', basicHttp, (req,res,next) => {
   })
   .catch( err => next(err));
 });
+
+authRouter.delete('/quitBit-ching/:id', jsonParser, bearAuth, (req,res,next) => {
+  User.findOne({_id: req.params.id})
+  .then( user => {
+    User.remove({id: req.params.id})
+      .then( () => {
+        res.status(200).send('successful delete')
+      })
+      .catch(next)
+    })
+  .catch(next);
+});
