@@ -1,0 +1,36 @@
+{
+  "name": "bit-ching",
+  "version": "1.0.0",
+  "description": "We awesome 401 backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgordon834/bit-ching.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgordon834/bit-ching/issues"
+  },
+  "homepage": "https://github.com/sgordon834/bit-ching#readme",
+  "devDependencies": {
+    "expect": "^21.2.1",
+    "faker": "^4.1.0",
+    "jest": "^21.2.1",
+    "mocha": "^4.0.1",
+    "superagent": "^3.8.1"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.13.3"
+  }
+}
