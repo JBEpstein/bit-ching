@@ -37,7 +37,7 @@ userSchema.methods.comparePassword = function(password){
 
 userSchema.methods.generateTokenSeed = function(){
   return new Promise( (resolve,reject) => {
-    this.tokenSeed = generateToken(this._id)
+    this.tokenSeed = generateToken(this._id);
     this.save()
     .then( user => {
       if(!user) reject();
