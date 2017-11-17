@@ -40,9 +40,9 @@ authRouter.delete('/quitBit-ching/:id', jsonParser, bearAuth, (req,res,next) => 
   .then( user => {
     User.remove({id: req.params.id})
       .then( () => {
-        res.status(200).send('successful delete')
+        res.status(200).send('successful delete');
       })
-      .catch(next)
-    })
+      .catch(next);
+  })
   .catch(next);
 });
