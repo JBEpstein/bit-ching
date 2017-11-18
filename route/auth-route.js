@@ -35,7 +35,7 @@ authRouter.get('/signin', basicHttp, (req,res,next) => {
   .catch( err => next(err));
 });
 
-authRouter.delete('/quitBit-ching/:id', jsonParser, bearAuth, (req,res,next) => {
+authRouter.delete('/quitBit-ching/:id', (req,res,next) => {
   User.findOne({_id: req.params.id})
   .then( user => {
     User.remove({id: req.params.id})
