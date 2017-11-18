@@ -4,21 +4,35 @@
 const BitUser = require('../model/bit-coinSchema.js');
 const jsonParser = require('body-parser').json();
 const bearAuth = require('../lib/bearAuth.js');
-const superagent = require('superagent');
 
 const bitCoinRouter = module.exports = require('express').Router();
 
 
-
+bitCoinRouter.post('/api', jsonParser, bearAuth, (req,res,next) => {
+  req.body.userId = req.user_id;
+  let user = new BitUser(req.body)
+  console.log(user);
+  user.save()
+  .then( user => {
+    if(!user) res.status(400).send();
+    res.send.bind(res.status(200).send(user));
+  })
+  .catch(err => next(err));
+});
 bitCoinRouter.get('/api', jsonParser, (req, res, next) => {
-  
+
+
+  BitUser.findOne({userId: req.user._id})
+.then( user => {
+  res.bind.send(res.status(200).send(user));
+})
+.catch(next);
   // let info = req.body;
   // console.log(info);
   // next();
-  return superagent
-  .get('https://api.cryptonator.com/api/full/btc-usd')
-  .then(function (err, res) { console.log(res.text); })
-  .catch();
+  // return superagent
+  // .get('https://api.cryptonator.com/api/full/btc-usd')
+  // .then(function (err, res) { console.log(res.text); });
   // .auth('test', 'guest')
   // .then(res => {
   //   let decoded = jwt.verify(res.text, 'testsecret');
