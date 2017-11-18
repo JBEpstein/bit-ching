@@ -47,6 +47,7 @@ describe('Making sure files exists in lib model', () => {
   });
 });
 
+
 // Does bit-coinSchema.js and userSchema.js exist?
 describe('Making sure files exists in model model', () => {
   describe('Making sure all files Exists and responds', () => {
@@ -60,6 +61,7 @@ describe('Making sure files exists in model model', () => {
     });
   });
 });
+
 
 // Does auth-route.js and bit-coinRoute.js exist?
 describe('Making sure files exists in route model', () => {
