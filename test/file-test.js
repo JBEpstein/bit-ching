@@ -2,7 +2,11 @@
 
 const expect = require('expect');
 
-// Does index.js exist?
+//These tests ensure all files are present and accounted for.
+
+//There's nothing like a missing file that will guarantee your app won't work.
+
+//Index and base files.
 
 describe('Making sure Index.js/Entry Point Exists and responds', () => {
     it('Should Exist', () => {
@@ -10,6 +14,8 @@ describe('Making sure Index.js/Entry Point Exists and responds', () => {
         expect(indexEntry).toBeTruthy();
     });
 });
+
+//Lib Subdirectory
 
 describe('Making sure files exists in lib model', () => {
     describe('Making sure all files Exists and responds', () => {
@@ -29,3 +35,8 @@ describe('Making sure files exists in lib model', () => {
         });
     });
 });
+
+//Model Subdirectory
+
+//Route Subdirectory
+
