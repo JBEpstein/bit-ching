@@ -1,23 +1,15 @@
 'use strict';
 
 
-const BitUser = require('../model/bit-coinSchema.js');
+const Currency = require('../model/bit-coinSchema.js');
 const jsonParser = require('body-parser').json();
 const bearAuth = require('../lib/bearAuth.js');
 
 const bitCoinRouter = module.exports = require('express').Router();
 
 
-bitCoinRouter.post('/api', jsonParser, bearAuth, (req,res,next) => {
-  req.body.userId = req.user_id;
-  let user = new BitUser(req.body)
-  console.log(user);
-  user.save()
-  .then( user => {
-    if(!user) res.status(400).send();
-    res.send.bind(res.status(200).send(user));
-  })
-  .catch(err => next(err));
+bitCoinRouter.post('/api', jsonParser, (req,res,next) => {
+  
 });
 bitCoinRouter.get('/api', jsonParser, (req, res, next) => {
 
