@@ -13,3 +13,14 @@ describe('fake data to come back when calling fakerUser', () => {
     expect(infoMain.email).toBeTruthy();
   });
 });
+
+describe('is data coming from api model', () => {
+  it('should have data', () =>{
+    let infoAPI = (); //?
+    console.log(infoAPI);
+    expect(infoAPI.ticker).toBeTruthy();
+    expect(infoAPI.timestamp).toBeTruthy();
+    expect(infoAPI.success).toBeTruthy();
+    expect(infoAPI.error).toBeTruthy();
+  });
+});
