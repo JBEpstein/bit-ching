@@ -12,9 +12,19 @@ const bitCoinRouter = module.exports = require('express').Router();
 bitCoinRouter.get('/api', bearAuth, (req,res,next) => {
   let dataObj = new Client({'apiKey': 'API Key','apiSecret': 'API SECRET'});
   dataObj.getSpotPrice({'currencyPair': 'BTC-USD'},function(err,price){
-    new Currency(req.body).save(price)
-    .then( data => {
-      res.status(200).send(price);
+    const mock = {
+      userId: req.user.id,
+      data: {
+        base: price.data.base,
+        amount: price.data.amount,
+        currency: price.data.currency,
+      }
+    }
+
+    Currency.userId = req.user.id;
+    (new Currency(mock)).save()
+    .then( result => {
+      res.status(200).send(result)
     })
     .catch( err => next('shit'));
   });
