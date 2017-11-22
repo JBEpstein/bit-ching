@@ -23,9 +23,9 @@ bitCoinRouter.get('/api', bearAuth, (req,res,next) => {
 
     Currency.userId = req.user.id;
     (new Currency(mock)).save()
-    .then( result => {
-      res.status(200).send(result)
-    })
-    .catch( err => next('shit'));
+      .then( result => {
+        res.status(200).send(result)
+      })
+      .catch( err => next('shit'));
   });
 });

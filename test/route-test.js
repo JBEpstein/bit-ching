@@ -1,8 +1,8 @@
 'use strict';
 
 const expect = require('expect');
-const authRoute = require('auth-route.js');
-const bitCoinRoute = require('bit-coinRoute.js');
+const authRouter = require('../route/auth-route.js');
+const bitCoinRouter = require('../route/bit-coinRoute.js');
 
 
 //auth-route.js testing
