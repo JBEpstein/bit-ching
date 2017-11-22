@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
   },
   tokenSeed: {
     type: String,
-  }
+  },
 });
 
 userSchema.methods.generateHash = function(password){

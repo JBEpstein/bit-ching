@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const basicHttp = require('../lib/basic-http.js');
 const jsonParser = require('body-parser').json();
 const User = require('../model/userSchema.js');
-const bearAuth = require('../lib/bearAuth.js');
+
 
 authRouter.post('/signup', jsonParser, (req,res,next) => {
   const password = req.body.password;

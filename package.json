@@ -29,6 +29,7 @@
     "bcrypt": "^1.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "coinbase": "^2.0.6",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "jsonwebtoken": "latest",
