@@ -21,28 +21,28 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.generateHash = function(password){
   return bcrypt.hashAsync(password,10)
-  .then( hash => {
-    this.password = hash;
-    return this;
-  });
+    .then( hash => {
+      this.password = hash;
+      return this;
+    });
 };
 
 userSchema.methods.comparePassword = function(password){
   return bcrypt.compareAsync(password,this.password)
-  .then( res => {
-    if(!res) return false;
-    return this;
-  });
+    .then( res => {
+      if(!res) return false;
+      return this;
+    });
 };
 
 userSchema.methods.generateTokenSeed = function(){
   return new Promise( (resolve,reject) => {
     this.tokenSeed = generateToken(this._id);
     this.save()
-    .then( user => {
-      if(!user) reject();
-      resolve(user);
-    });
+      .then( user => {
+        if(!user) reject();
+        resolve(user);
+      });
   });
 };
 
