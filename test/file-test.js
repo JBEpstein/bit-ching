@@ -10,18 +10,6 @@ describe('Making sure Index.js/Entry Point exists and responds', () => {
   });
 });
 
-// Does .env and .test.env exist?
-describe('Making sure .env and .test.env exists and responds', () => {
-  it('Should Exist', () => {
-    let dotEnv = require('../.env');
-    expect(dotEnv).toBeTruthy();
-  });
-  it('Should Exist', () => {
-    let dotTestDotEnv = require('../.test.env');
-    expect(dotTestDotEnv).toBeTruthy();
-  });
-});
-
 // Does basic-http.js, bearAuth.js, error-message.js, and server.js exist?
 describe('Making sure files exists in lib model', () => {
   describe('Making sure all files Exists and responds', () => {
