@@ -1,0 +1,17 @@
+language: node_js
+node_js: 
+  - '6'
+services:
+  - mongodb
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.8
+      - g++-4.8
+sudo: required
+before-script: npm i
+script:
+  - npm test
+  - npm run lint

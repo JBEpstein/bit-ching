@@ -16,7 +16,7 @@ describe('fake data to come back when calling fakerUser', () => {
 
 describe('is data coming from api model', () => {
   it('should have data', () =>{
-    let infoAPI = (); //?
+    let infoAPI = //(?);
     console.log(infoAPI);
     expect(infoAPI.ticker).toBeTruthy();
     expect(infoAPI.timestamp).toBeTruthy();
