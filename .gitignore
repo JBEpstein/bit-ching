@@ -90,7 +90,7 @@ db
 build
 *.env
 .*.env
-*/test/dotenv-file-test.js
+test/dotenv-file-test.js
 
 
 ### OSX ###
