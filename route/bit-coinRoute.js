@@ -2,7 +2,7 @@
 
 
 const Currency = require('../model/bit-coinSchema.js');
-const jsonParser = require('body-parser').json();
+// const jsonParser = require('body-parser').json();
 const bearAuth = require('../lib/bearAuth.js');
 const Client = require('coinbase').Client;
 
@@ -19,7 +19,7 @@ bitCoinRouter.get('/api', bearAuth, (req,res,next) => {
         amount: price.data.amount,
         currency: price.data.currency,
       }
-    }
+    };
 
     Currency.userId = req.user.id;
     (new Currency(mock)).save()
