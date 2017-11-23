@@ -15,7 +15,7 @@ authRouter.post('/signup', jsonParser, (req,res,next) => {
       user.save()
         .then( user => {
           user.generateTokenSeed();
-          res.status(200).send(user);
+          res.status(201).send(user);
         })
         .catch(err => res.status(400).send());
     })

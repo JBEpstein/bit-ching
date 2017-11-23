@@ -51,7 +51,7 @@ describe('Making sure files exists in model model', () => {
 });
 
 
-// Does auth-route.js and bit-coinRoute.js exist?
+// Does auth-route.js, bit-coinRoute.js, and sendmail.js exist?
 describe('Making sure files exists in route model', () => {
   describe('Making sure all files Exists and responds', () => {
     it('auth-route.js should Exist', () => {
@@ -61,6 +61,10 @@ describe('Making sure files exists in route model', () => {
     it('auth-route.js should Exist', () => {
       let bitCoinRoute = require('../route/bit-coinRoute.js');
       expect(bitCoinRoute).toBeTruthy();
+    });
+    it('sendmail.js should Exist', () => {
+      let sendmail = require('../route/sendmail.js');
+      expect(sendmail).toBeTruthy();
     });
   });
 });

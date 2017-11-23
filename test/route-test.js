@@ -11,11 +11,12 @@ const clearDB = require ('./lib/clear-db.js');
 const fakerUser = require ('./lib/faker-user.js');
 const API_URL = process.env.API_URL;
 
-
 //auth-route.js testing
 describe('auth-route.js testing', () => {
 
-  before(server.start);
+  before(function() {
+    server.start();
+  });
   after(server.stop);
   afterEach(clearDB);
 
@@ -86,6 +87,10 @@ describe('auth-route.js testing', () => {
 //bit-coinRoute.js testing
 describe('bit-coinRoute.js testing', () => {
 
+  before(server.start);
+  after(server.stop);
+  afterEach(clearDB);
+
   describe('post testing', () => {
     it('should return a 200 message if signup was successful', () => {
       expect(bitCoinRouter.post.res.status).toBe(200);
@@ -106,7 +111,7 @@ describe('bit-coinRoute.js testing', () => {
   });
 
   describe('delete testing', () => {
-    it('', () => {
+    it('fix this shit', () => {
       expect().toBe();
     });
   });
