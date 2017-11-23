@@ -1,35 +1,78 @@
 'use strict';
 
+require('dotenv').config({path: '${__dirname}/../.env'});
 const expect = require('expect');
+const superagent = require ('superagent');
+
+const server = require('../lib/server.js');
 const authRouter = require('../route/auth-route.js');
 const bitCoinRouter = require('../route/bit-coinRoute.js');
+const clearDB = require ('./lib/clear-db.js');
+const fakerUser = require ('./lib/faker-user.js');
+const API_URL = process.env.API_URL;
 
 
 //auth-route.js testing
 describe('auth-route.js testing', () => {
 
+  before(server.start);
+  after(server.stop);
+  afterEach(clearDB);
+
   describe('post testing', () => {
-    it('should return a 200 message if signup was successful', () => {
-      //code to call authRouter here?
-      expect(authRouter.post.res.status).toBe(200);
+    it('should return a 201 message if signup was successful', () => {
+      return superagent.post(`${API_URL}/api/signup`)
+        .send({
+          username: 'Simon',
+          email: 'simon@simonsays.com',
+          password: 'password'
+        })
+        .then(res => {
+          expect(res.status).toBe(201);
+          expect(res.text).toBeTruthy();
+          expect(res.body.length > 1).toBeTruthy();
+        });
     });
     it('should return a 400 message if signup was not successful', () => {
-      //code to call authRouter here?
-      expect(authRouter.post.catch.res.status).toBe(400);//I think the expect logic is wrong on my part...
+      return superagent.post(`${API_URL}/api/signup`)
+        .send({
+          username: 'Simon',
+          email: 'simon@simonsays.com',
+          password: 'password'
+        })
+        .then(res => {
+          expect(res.status).toBe(400);
+        });
     });
   });
 
   describe('get testing', () => {
     it('should return a 200 message if signin was successful', () => {
-      //code to call authRouter here?
-      expect(authRouter.get.res.status).toBe(200);
+      return superagent.get(`${API_URL}/api/signin`)
+        .send({
+          username: 'Simon',
+          email: 'simon@simonsays.com',
+          password: 'password'
+        })//when do we use the faker users versus superagent?
+        .then(res => {
+          expect(res.status).toBe(200);
+          expect(res.text).toBeTruthy();
+          expect(res.body.length > 1).toBeTruthy();
+        });
     });
     it('should return a 400 message if signin was not successful', () => {
-      //code to call authRouter here?
-      expect(authRouter.get.catch.res.status).toBe(400);
+      return superagent.get(`${API_URL}/api/signin`)
+        .send({
+          username: 'Simon',
+          email: 'simon@simonsays.com',
+          password: 'password'
+        })
+        .then(res => {
+          expect(res.status).toBe(400);
+        });
     });
-
   });
+  
   describe('delete testing', () => {
     it('should return a 200 message if deletion of ID was successful', () => {
       //code to call authRouter here?
@@ -37,6 +80,7 @@ describe('auth-route.js testing', () => {
     });
     //shouldn't there be a fail status for delete?
   });
+
 });
 
 //bit-coinRoute.js testing

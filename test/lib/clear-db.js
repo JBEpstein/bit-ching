@@ -1,7 +1,7 @@
 'use strict';
 
-const User = require('../../userSchema.js');
-const Currency = require('../../bit-coinSchema.js');
+const User = require('../../model/userSchema.js');
+const Currency = require('../../model/bit-coinSchema.js');
 
 module.exports = () => {
   return Promise.all(
