@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bluebird').promisifyAll(require('bcrypt'));
 const jwt = require('jsonwebtoken');
 
-const userSchema = new mongoose.Schema({
+const userSchema = mongoose.Schema({
   username: {
     type: String, required: true, unique: true
   },
