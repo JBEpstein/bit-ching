@@ -15,3 +15,5 @@ before-script: npm i
 script:
   - npm test
   - npm run lint
+ignore:
+  - test/dotenv-file-test.js
