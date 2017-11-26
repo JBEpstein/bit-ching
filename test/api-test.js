@@ -3,7 +3,7 @@
 const expect = require('expect');
 const bitCoinRouter = require('../route/bit-coinRoute.js');
 
-console.log(bitCoinRouter.get());
+// console.log(bitCoinRouter.get());
 
 // bitCoinRouter.get('/api', bearAuth, (req,res,next) => {
 //   let dataObj = new Client({'apiKey': 'API Key','apiSecret': 'API SECRET'});
