@@ -4,9 +4,12 @@
   "description": "We awesome 401 backend",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "nyc mocha",
     "start": "node index.js",
-    "lint": "eslint"
+    "watch": "nodemon index.js",
+    "start-db": "mongod --dbpath ./db",
+    "stop-db": "sudo killall mongod",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -35,6 +38,7 @@
     "express": "^4.16.2",
     "jsonwebtoken": "latest",
     "mongoose": "^4.13.3",
+    "nodemailer": "^4.4.0",
     "sendmail": "^1.2.0"
   }
 }
