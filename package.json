@@ -6,7 +6,10 @@
   "scripts": {
     "test": "mocha",
     "start": "node index.js",
-    "lint": "eslint"
+    "watch": "nodemon index.js",
+    "start-db": "mongod --dbpath ./db",
+    "stop-db": "sudo killall mongod",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
