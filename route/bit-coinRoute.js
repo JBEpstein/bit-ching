@@ -28,5 +28,4 @@ bitCoinRouter.get('/api', bearAuth, (req,res,next) => {
     })
     .catch( err => next('shit'));
   });
-  // console.log(dataObj); //Does Not return an Obj or STring or anything with Data
 });
