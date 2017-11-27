@@ -20,12 +20,12 @@ bitCoinRouter.get('/api', bearAuth, (req,res,next) => {
         currency: price.data.currency,
       }
     };
-    
+
     Currency.userId = req.user.id;
-    (new Currency(mock)).save() //Mock? Should it be DataObj?
+    (new Currency(mock)).save() //No its mock.
     .then( result => {
       res.status(200).send(result)
     })
-    .catch( err => next('shit'));
+    .catch( err => next(err));
   });
 });

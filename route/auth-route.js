@@ -14,13 +14,12 @@ authRouter.post('/signup', jsonParser, (req,res,next) => {
   (new User(req.body)).generateHash(password)
     .then( user => {
       user.save()
-        .then( user => {
-          user.generateTokenSeed();
-          res.status(200).send(user);
-        })
-        .catch(err => res.status(400).send());
+    .then( user => {
+      res.status(200).send(user.generateToken())
+      .catch(err => res.status(400).send(err));
     })
-    .catch(err => next(err));
+    .catch(next);
+    });
 });
 
 authRouter.get('/signin', basicHttp, (req,res,next) => {
@@ -28,7 +27,6 @@ authRouter.get('/signin', basicHttp, (req,res,next) => {
     .then( user => {
       user.comparePassword(req.auth.password)
         .then( user => {
-          user.generateTokenSeed();
           res.status(200).send(user);
         })
         .catch(err => res.status(400).send());
