@@ -9,7 +9,7 @@ sendmailRouter.post('/sendmail', bearAuth, (req, res, next) => {
 
   sendmail({
     from: 'no-reply@bit-ching.com',
-    to: 'joel.epstein2@gmail.com',
+    to: 'ryleeandrews73@gmail.com',
     replyTo: 'no-reply',
     subject: 'Bit-Ching Buy Alert',
     html: 'This only works at Codefellows because of security set up!'
