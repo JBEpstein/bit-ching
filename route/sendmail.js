@@ -31,7 +31,7 @@ sendmailRouter.post('/sendmail', bearAuth, (req, res, next) => {
     Currency.userId = req.user.id;
     (new Currency(mock)).save()
   .then( data => {
-    if(price.data.amount > 9000){
+    if(price.data.amount > 1000){
       res.status(200).send(sendmail());
     }else{
       res.end();
