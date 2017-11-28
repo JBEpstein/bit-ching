@@ -7,7 +7,7 @@ const jsonParser = require('body-parser').json();
 const User = require('../model/userSchema.js');
 
 
-authRouter.post('/signup', jsonParser, (req,res,next) => {
+authRouter.post('http://www.bit-ching.me/signup', jsonParser, (req,res,next) => {
   console.log('ASDSADSADASDSADSDASDDASDASKJWSEKHFSHFKHSKGSRKHGKSRHDASDA');
   const password = req.body.password;
   delete req.body.password;
