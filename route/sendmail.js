@@ -34,7 +34,7 @@ sendmailRouter.post('/sendmail', bearAuth, (req, res, next) => {
     (new Currency(mock)).save()
   .then( data => {
     if(price.data.amount > 1000){
-      //rylee work
+      //rylee workss
       res.status(200).send(mail());
     }else{
       res.end();
