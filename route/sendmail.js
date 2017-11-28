@@ -7,16 +7,18 @@ const Currency = require('../model/bit-coinSchema.js');
 const bearAuth = require('../lib/bearAuth.js');
 sendmailRouter.post('/sendmail', bearAuth, (req, res, next) => {
 
-  sendmail({
-    from: 'no-reply@bit-ching.com',
-    to: 'ryleeandrews73@gmail.com',
-    replyTo: 'no-reply',
-    subject: 'Bit-Ching Buy Alert',
-    html: 'This only works at Codefellows because of security set up!'
-  }, function (err, reply) {
-    console.log(err && err.stack);
-    console.dir(reply);
-  });
+  let mail = function() {
+    sendmail({
+      from: 'no-reply@bit-ching.com',
+      to: 'ryleeandrews73@gmail.com',
+      replyTo: 'no-reply',
+      subject: 'Bit-Ching Buy Alert',
+      html: 'This only works at Codefellows because of security set up!'
+    }, function (err, reply) {
+      console.log(err && err.stack);
+      console.dir(reply);
+    });
+  };
 
   let dataObj = new Client({'apiKey': 'API Key','apiSecret': 'API SECRET'});
   dataObj.getSpotPrice({'currencyPair': 'BTC-USD'},function(err,price){
@@ -32,7 +34,7 @@ sendmailRouter.post('/sendmail', bearAuth, (req, res, next) => {
     (new Currency(mock)).save()
   .then( data => {
     if(price.data.amount > 1000){
-      res.status(200).send(sendmail());
+      res.status(200).send(mail());
     }else{
       res.end();
     }
