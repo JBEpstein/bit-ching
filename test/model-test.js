@@ -14,13 +14,13 @@ describe('fake data to come back when calling fakerUser', () => {
   });
 });
 
-describe('is data coming from api model', () => {
-  it('should have data', () =>{
-    let infoAPI = //(?);
-    console.log(infoAPI);
-    expect(infoAPI.ticker).toBeTruthy();
-    expect(infoAPI.timestamp).toBeTruthy();
-    expect(infoAPI.success).toBeTruthy();
-    expect(infoAPI.error).toBeTruthy();
-  });
-});
+// describe('is data coming from api model', () => {
+//   it('should have data', () =>{
+//     let infoAPI = //(?);
+//     console.log(infoAPI);
+//     expect(infoAPI.ticker).toBeTruthy();
+//     expect(infoAPI.timestamp).toBeTruthy();
+//     expect(infoAPI.success).toBeTruthy();
+//     expect(infoAPI.error).toBeTruthy();
+//   });
+// });
