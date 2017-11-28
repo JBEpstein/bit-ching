@@ -14,9 +14,6 @@ const userSchema = mongoose.Schema({
   password: {
     type: String, required: true, unique: true
   },
-  tokenSeed: {
-    type: String,
-  },
 });
 
 userSchema.methods.generateHash = function(password){
@@ -35,20 +32,8 @@ userSchema.methods.comparePassword = function(password){
     });
 };
 
-userSchema.methods.generateTokenSeed = function(){
-  return new Promise( (resolve,reject) => {
-    this.tokenSeed = generateToken(this._id);
-    this.save()
-      .then( user => {
-        if(!user) reject();
-        resolve(user);
-      });
-  });
-};
-
-
-const generateToken = function(id){
-  return jwt.sign({ id }, process.env.SECRET);
+userSchema.methods.generateToken = function(){
+  return jwt.sign({id: this._id}, process.env.SECRET);
 };
 
 module.exports = mongoose.model('User', userSchema);
