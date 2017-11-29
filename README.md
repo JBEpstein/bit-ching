@@ -1,13 +1,16 @@
 ![CF](https://camo.githubusercontent.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) Bit-Ching!
 ===
 
+
 ## Bit-Ching for BitCoin Notifications
 * Sends an email with notification that the current price has dropped below the buying price.
 * Allows the user to monitor bitcoin rates and buy during drops in rates.
 
+
 ## Installation
 * npm install after pulling in our github repo.
 * set secret in an env file.
+
 
 ## Features
 Allows a user to create an account, sign-in on that account, and request bitcoin prices and store that information with that users account. And if the user would like to delete their account they can also.
@@ -53,12 +56,12 @@ Allows a user to create an account, sign-in on that account, and request bitcoin
 
 
 ## API
-* Coinbase
+* Coinbase API, https://developers.coinbase.com/api/v2
 
 
 
 
-## About Us (Do we want to add this part?)
+## About Us
 #### Joel
 Network Support Engineer - Working to become a full stack JavaScript dev.
 
