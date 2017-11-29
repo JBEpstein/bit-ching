@@ -12,12 +12,11 @@ sendmailRouter.post('/sendmail', bearAuth, (req, res, next) => {
 
     let priceObj = new Client({'apiKey': 'API Key','apiSecret': 'API SECRET'});
     priceObj.getBuyPrice({'currencyPair': 'BTC-USD'}, function(err, userPrice) {
-        console.log(price);
-        console.log(userPrice);
+
       let mail = function() {
         sendmail({
           from: 'no-reply@bit-ching.com',
-          to: 'ryleeandrews73@gmail.com',
+          to: 'ryleeandrews73@gmail.com', //change to your email to test yourself
           replyTo: 'no-reply',
           subject: 'Bit-Ching Buy Alert',
           html: 'UserId: ' + `${req.user.id}` + ' ' + 'Price of coin: ' + `${price.data.amount}`,
