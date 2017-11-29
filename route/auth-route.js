@@ -8,7 +8,6 @@ const User = require('../model/userSchema.js');
 
 
 authRouter.post('/signup', jsonParser, (req,res,next) => {
-  console.log('ASDSADSADASDSADSDASDDASDASKJWSEKHFSHFKHSKGSRKHGKSRHDASDA');
   const password = req.body.password;
   delete req.body.password;
   (new User(req.body)).generateHash(password)
